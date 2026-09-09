@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>정보통신 헬프데스크</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <header class="topbar">
+      <div>
+        <p class="eyebrow">정보통신과</p>
+        <h1>헬프데스크</h1>
+      </div>
+      <nav class="tabs" aria-label="화면 전환">
+        <button class="tab active" type="button" data-view="guide">해결방법</button>
+        <button class="tab" type="button" data-view="tickets">접수/처리</button>
+      </nav>
+    </header>
+
+    <main>
+      <section id="guideView" class="view active" aria-labelledby="guideTitle">
+        <div class="section-heading">
+          <div>
+            <h2 id="guideTitle">주요 장애 해결방법</h2>
+            <p>자주 발생하는 장애를 먼저 확인하고, 해결되지 않으면 바로 접수하세요.</p>
+          </div>
+        </div>
+
+        <div id="guideList" class="guide-grid"></div>
+      </section>
+
+      <section id="ticketsView" class="view" aria-labelledby="ticketTitle">
+        <div class="section-heading">
+          <div>
+            <h2 id="ticketTitle">장애 접수 및 처리 현황</h2>
+            <p>접수 목록은 긴급도 높은 순, 같은 긴급도에서는 오래된 순으로 표시됩니다.</p>
+          </div>
+          <button id="clearCompletedBtn" class="secondary-button" type="button">완료 건 숨기기</button>
+        </div>
+
+        <div class="workspace">
+          <form id="ticketForm" class="panel">
+            <h3>장애 접수</h3>
+
+            <label>
+              사용자 이름
+              <input id="userName" name="userName" type="text" autocomplete="name" required>
+            </label>
+
+            <label>
+              연락처
+              <input id="contact" name="contact" type="tel" autocomplete="tel" required>
+            </label>
+
+            <label>
+              부서/위치
+              <input id="location" name="location" type="text" required>
+            </label>
+
+            <label>
+              장애 유형
+              <select id="issueType" name="issueType" required></select>
+            </label>
+
+            <label>
+              장애 내용
+              <textarea id="description" name="description" rows="4" required></textarea>
+            </label>
+
+            <fieldset>
+              <legend>긴급도</legend>
+              <div class="segmented">
+                <label><input type="radio" name="priority" value="낮음">낮음</label>
+                <label><input type="radio" name="priority" value="보통" checked>보통</label>
+                <label><input type="radio" name="priority" value="높음">높음</label>
+              </div>
+            </fieldset>
+
+            <button class="primary-button" type="submit">접수하기</button>
+          </form>
+
+          <section class="panel ticket-panel">
+            <div class="ticket-header">
+              <h3>접수 목록</h3>
+              <span id="ticketCount" class="count">0건</span>
+            </div>
+            <div id="ticketList" class="ticket-list"></div>
+          </section>
+        </div>
+      </section>
+    </main>
+
+    <dialog id="completionDialog">
+      <form method="dialog" class="dialog-card">
+        <h3>완료 메모</h3>
+        <p>처리 결과를 짧게 남겨주세요.</p>
+        <textarea id="completionNote" rows="4" required></textarea>
+        <div class="dialog-actions">
+          <button value="cancel" class="secondary-button" type="submit">취소</button>
+          <button id="saveCompletionBtn" value="default" class="primary-button" type="button">완료 저장</button>
+        </div>
+      </form>
+    </dialog>
+
+    <script src="app.js"></script>
+  </body>
+</html>
