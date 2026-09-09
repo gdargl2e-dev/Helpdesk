@@ -39,6 +39,8 @@ http://localhost:8000
 - Output Directory: 비워두기
 - Install Command: 비워두기
 
+`server.js`는 로컬 실행용 파일이므로 Vercel 배포에서는 `.vercelignore`로 제외합니다.
+
 ## 저장 방식
 
 접수 데이터는 브라우저의 `localStorage`에 저장됩니다. 같은 PC와 같은 브라우저에서는 새로고침 후에도 데이터가 유지됩니다.
