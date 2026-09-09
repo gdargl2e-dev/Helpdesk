@@ -4,19 +4,9 @@
 
 ## 실행 방법
 
-PowerShell에서 이 폴더로 이동한 뒤 아래 명령을 실행합니다.
+가장 간단한 방법은 `index.html` 파일을 브라우저로 직접 여는 것입니다.
 
-```powershell
-node server.js
-```
-
-브라우저에서 아래 주소를 엽니다.
-
-```text
-http://localhost:8000
-```
-
-Python이 설치되어 있다면 아래 명령으로도 실행할 수 있습니다.
+Python이 설치되어 있다면 PowerShell에서 이 폴더로 이동한 뒤 아래 명령으로도 실행할 수 있습니다.
 
 ```powershell
 python -m http.server 8000
@@ -28,8 +18,6 @@ python -m http.server 8000
 http://localhost:8000
 ```
 
-서버 실행이 번거롭다면 `index.html` 파일을 브라우저로 직접 열어도 동작합니다.
-
 ## Vercel 배포
 
 이 앱은 정적 웹앱이므로 Vercel에서 별도 빌드 명령 없이 배포할 수 있습니다.
@@ -39,7 +27,7 @@ http://localhost:8000
 - Output Directory: 비워두기
 - Install Command: 비워두기
 
-`server.js`는 로컬 실행용 파일이므로 Vercel 배포에서는 `.vercelignore`로 제외합니다.
+Vercel이 서버 파일을 함수로 오인하지 않도록 서버 코드 없이 정적 파일만 배포합니다.
 
 ## 저장 방식
 
